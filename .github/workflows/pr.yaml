@@ -1,0 +1,29 @@
+name: "internally receive PR"
+
+# Controls when the workflow will run
+on:
+  pull_request_target:
+    branches: [ "main" ]
+jobs:
+  test-pr:
+    name: "Test if pull request is valid"
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    outputs:
+      is_valid: ${{ steps.check-pr.outputs.VALID }}
+      MSG: ${{ steps.check-pr.outputs.MSG }}
+    steps:
+      - name: "Check PR"
+        id: check-pr
+        uses: carpentries/actions/check-valid-pr@add-invalid-hash
+        with:
+          pr: ${{ github.event.number }}
+          invalid-hash: 6d0c122455837d4339e486140377d71701344e51 
+
+      - name: "Comment on PR"
+        id: comment-diff
+        if: ${{ always() }}
+        uses: carpentries/actions/comment-diff@main
+        with:
+          pr: ${{ github.event.number }} 
+          body: ${{ steps.check-pr.outputs.MSG }}
