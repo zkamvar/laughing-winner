@@ -1,7 +1,7 @@
 #! /bin/sh
 
 
-# This assumes the tags come in the form of v.1.1.2
+# This assumes the tags come in the form of v.1.1.2!
 vscript=`dirname $0`/getversion.sh
 vstring=`${vscript}`
 if echo "$vstring" | grep -q '\+'; then
