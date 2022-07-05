@@ -2,7 +2,7 @@ on:
   push:
     branches: main
 
-name: pkgdwn
+name: aaeo
 
 jobs:
   pkgdown:
