@@ -363,7 +363,7 @@ popsub <- function(gid, sublist="ALL", exclude=NULL, blacklist=NULL, mat=NULL, d
 #'  
 #'@param quiet if \code{TRUE}, it will print to the screen the action performed.
 #'  
-#'@param freq defaults to \code{FALSE}. This option is passed on to the
+#'@param freeeeek defaults to \code{FALSE}. This option is passed on to the
 #'  \code{\link[adegenet]{tab}} function. If \code{TRUE}, the matrix in the
 #'  genind object will be replaced by a numeric matrix (as opposed to integer).
 #'  THIS IS NOT RECOMMENDED. USE THE FUNCTION \code{\link[adegenet]{tab}}
